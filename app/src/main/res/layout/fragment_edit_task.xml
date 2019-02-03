@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_task_input_hint"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inputTaskContent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+            android:id="@+id/checkHighPriorityDet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_task_is_high_priority"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/new_task_save_button"
+            android:id="@+id/buttonSaveTask"/>
+
+</LinearLayout>
