@@ -1,5 +1,6 @@
 package com.fjrc.todo.ui.edittask
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ class EditTaskFragment : BottomSheetDialog() {
     interface updateTaskOnDismissOfEdit{
         fun updateTaskOnDismissOfEdit()
     }
+
     private var listener: updateTaskOnDismissOfEdit? = null
 
     companion object {
@@ -43,11 +45,19 @@ class EditTaskFragment : BottomSheetDialog() {
         task = arguments?.let {
             it.getParcelable(PARAM_TASK)
         }
+
         if (task == null) {
             dismiss()
         }
 
         setUp()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        listener?.let {
+            it.updateTaskOnDismissOfEdit()
+        }
     }
 
     private fun setUp() {

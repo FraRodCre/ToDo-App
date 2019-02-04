@@ -19,7 +19,7 @@ data class Task(
         Date(parcel.readLong()),
         parcel.readByte() != 0.toByte(),
         parcel.readByte() != 0.toByte(),
-        parcel?.readLong()
+        parcel.readValue(Long::class.java.classLoader) as? Long
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -28,7 +28,7 @@ data class Task(
         parcel.writeLong(createdAt.time)
         parcel.writeByte(if (isDone) 1 else 0)
         parcel.writeByte(if (isHighPriority) 1 else 0)
-        idParentTask?.let { parcel.writeLong(it) }
+        parcel.writeValue(idParentTask)
     }
 
     override fun describeContents(): Int {

@@ -27,10 +27,9 @@ class MainActivity : BaseActivity() {
     private fun setUp() {
         bindActions()
 
+        val fragmentTask = TaskFragment()
         val bundleWithParent = Bundle()
         bundleWithParent.putLong("idParentTask",0)
-
-        val fragmentTask = TaskFragment()
         fragmentTask.arguments = bundleWithParent
 
         supportFragmentManager

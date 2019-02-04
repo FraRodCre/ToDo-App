@@ -21,6 +21,7 @@ class TaskViewModel(val taskRepository: TaskRepository) : BaseViewModel() {
 
     val newTaskAddedEvent = MutableLiveData<Event<Unit>>()
     val taskUpdatedEvent = MutableLiveData<Event<Task>>()
+    val taskDeletedEvent = MutableLiveData<Event<Unit>>()
 
     init {
         loadTasks()

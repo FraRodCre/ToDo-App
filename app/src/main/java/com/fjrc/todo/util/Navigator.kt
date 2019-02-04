@@ -16,14 +16,15 @@ object Navigator {
         context.startActivity(intent)
     }
 
-    fun navigateToEditTaskFragment(task: Task, fragmentManager: FragmentManager) {
+    fun navigateToEditTaskFragment(task: Task, fragmentManager: FragmentManager) : EditTaskFragment {
         val fragment = EditTaskFragment.newInstance(task)
         fragment.show(fragmentManager, null)
+        return fragment
     }
 
     fun navigateToTaskDetailActivity(task: Task, context: Context) {
         val intent = Intent(context, DetailTaskActivity::class.java)
-        intent.putExtra("taskSelected", task)
+        intent.putExtra("task", task)
         context.startActivity(intent)
     }
 }

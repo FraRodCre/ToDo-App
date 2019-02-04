@@ -9,8 +9,8 @@ import java.util.*
     tableName = "tasks",
     foreignKeys = [ForeignKey(
         entity = TaskEntity::class,
-        parentColumns = ["id"],
-        childColumns = ["id_parent_task"],
+        parentColumns = arrayOf("id"),
+        childColumns = arrayOf("id_parent_task"),
         onDelete = CASCADE
     )
     ],

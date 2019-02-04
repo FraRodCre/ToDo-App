@@ -42,13 +42,13 @@ class TaskAdapter(val listener: Listener) : ListAdapter<Task, TaskAdapter.TaskVi
         fun bind(task: Task) {
             with(itemView) {
                 if (task.isDone) {
-                    applyStrikethrough(textContent, task.content)
+                    applyStrikethrough(textContentDetail, task.content)
                 } else {
-                    removeStrikethrough(textContent, task.content)
+                    removeStrikethrough(textContentDetail, task.content)
                 }
                 applyColorToHighPriority(itemView.findViewById(R.id.buttonHighPriority), task.isHighPriority)
 
-                textDate.text = DateHelper.calculateTimeAgo(task.createdAt)
+                textDateDetail.text = DateHelper.calculateTimeAgo(task.createdAt)
 
                 checkHighPriorityDet.isChecked = task.isDone
 
@@ -92,7 +92,7 @@ class TaskAdapter(val listener: Listener) : ListAdapter<Task, TaskAdapter.TaskVi
         }
 
         private fun executeAnimation(view: View, isDone: Boolean) {
-            val textContent = view.findViewById<TextView>(R.id.textContent)
+            val textContent = view.findViewById<TextView>(R.id.textContentDetail)
             val content = textContent.text.toString()
 
             if (isDone) {
